@@ -135,12 +135,12 @@ module clk_counter(
 				end
 			end
 			STATE0: begin // 1000000
-				if (count_r == 28'd500000) begin
+				if (count_r == 28'd2000000) begin
 					slower_clk_w = 1'd1;
 					count_w = count_r + 28'd1;
 					state_w = state_r;
 				end
-				else if (count_r == 28'd1000000) begin
+				else if (count_r == 28'd4000000) begin
 					slower_clk_w = 1'd0;
 					state_w = STATE1;
 					count_w = 28'd0;
@@ -152,12 +152,12 @@ module clk_counter(
 				end
 			end
 			STATE1: begin // 3000000
-				if (count_r == 28'd1500000) begin
+				if (count_r == 28'd2000000) begin
 					slower_clk_w = 1'd1;
 					count_w = count_r + 28'd1;
 					state_w = state_r;
 				end
-				else if (count_r == 28'd3000000) begin
+				else if (count_r == 28'd4000000) begin
 					slower_clk_w = 1'd0;
 					state_w = STATE2;
 					count_w = 28'd0;
@@ -169,12 +169,12 @@ module clk_counter(
 				end
 			end
 			STATE2: begin // 5000000
-				if (count_r == 28'd2500000) begin
+				if (count_r == 28'd2000000) begin
 					slower_clk_w = 1'd1;
 					count_w = count_r + 28'd1;
 					state_w = state_r;
 				end
-				else if (count_r == 28'd5000000) begin
+				else if (count_r == 28'd4000000) begin
 					slower_clk_w = 1'd0;
 					state_w = STATE3;
 					count_w = 28'd0;
@@ -186,12 +186,12 @@ module clk_counter(
 				end
 			end
 			STATE3: begin // 7000000
-				if (count_r == 28'd3500000) begin
+				if (count_r == 28'd4000000) begin
 					slower_clk_w = 1'd1;
 					count_w = count_r + 28'd1;
 					state_w = state_r;
 				end
-				else if (count_r == 28'd7000000) begin
+				else if (count_r == 28'd8000000) begin
 					slower_clk_w = 1'd0;
 					state_w = STATE4;
 					count_w = 28'd0;
@@ -203,12 +203,12 @@ module clk_counter(
 				end
 			end
 			STATE4: begin // 9000000
-				if (count_r == 28'd4500000) begin
+				if (count_r == 28'd4000000) begin
 					slower_clk_w = 1'd1;
 					count_w = count_r + 28'd1;
 					state_w = state_r;
 				end
-				else if (count_r == 28'd9000000) begin
+				else if (count_r == 28'd8000000) begin
 					slower_clk_w = 1'd0;
 					state_w = STATE5;
 					count_w = 28'd0;
@@ -220,12 +220,12 @@ module clk_counter(
 				end
 			end
 			STATE5: begin // 11000000
-				if (count_r == 28'd5500000) begin
+				if (count_r == 28'd4000000) begin
 					slower_clk_w = 1'd1;
 					count_w = count_r + 28'd1;
 					state_w = state_r;
 				end
-				else if (count_r == 28'd11000000) begin
+				else if (count_r == 28'd8000000) begin
 					slower_clk_w = 1'd0;
 					state_w = STATE6;
 					count_w = 28'd0;
@@ -237,12 +237,12 @@ module clk_counter(
 				end
 			end
 			STATE6: begin // 13000000
-				if (count_r == 28'd6500000) begin
+				if (count_r == 28'd8000000) begin
 					slower_clk_w = 1'd1;
 					count_w = count_r + 28'd1;
 					state_w = state_r;
 				end
-				else if (count_r == 28'd13000000) begin
+				else if (count_r == 28'd16000000) begin
 					slower_clk_w = 1'd0;
 					state_w = STATE7;
 					count_w = 28'd0;
@@ -254,12 +254,12 @@ module clk_counter(
 				end
 			end
 			STATE7: begin // 15000000
-				if (count_r == 28'd7500000) begin
+				if (count_r == 28'd16000000) begin
 					slower_clk_w = 1'd1;
 					count_w = count_r + 28'd1;
 					state_w = state_r;
 				end
-				else if (count_r == 28'd15000000) begin
+				else if (count_r == 28'd32000000) begin
 					slower_clk_w = 1'd0;
 					state_w = STATE8;
 					count_w = 28'd0;
@@ -271,12 +271,12 @@ module clk_counter(
 				end
 			end
 			STATE8: begin // 17000000
-				if (count_r == 28'd8500000) begin
+				if (count_r == 28'd16000000) begin
 					slower_clk_w = 1'd1;
 					count_w = count_r + 28'd1;
 					state_w = state_r;
 				end
-				else if (count_r == 28'd17000000) begin
+				else if (count_r == 28'd32000000) begin
 					slower_clk_w = 1'd0;
 					state_w = STATE9;
 					count_w = 28'd0;
@@ -288,12 +288,12 @@ module clk_counter(
 				end
 			end
 			STATE9: begin // 19000000
-				if (count_r == 28'd9500000) begin
+				if (count_r == 28'd16000000) begin
 					slower_clk_w = 1'd1;
 					count_w = count_r + 28'd1;
 					state_w = state_r;
 				end
-				else if (count_r == 28'd19000000) begin
+				else if (count_r == 28'd32000000) begin
 					slower_clk_w = 1'd0;
 					state_w = STATE10;
 					count_w = 28'd0;
@@ -305,12 +305,12 @@ module clk_counter(
 				end
 			end
 			STATE10: begin // 21000000
-				if (count_r == 28'd10500000) begin
+				if (count_r == 28'd20000000) begin
 					slower_clk_w = 1'd1;
 					count_w = count_r + 28'd1;
 					state_w = state_r;
 				end
-				else if (count_r == 28'd21000000) begin
+				else if (count_r == 28'd40000000) begin
 					slower_clk_w = 1'd0;
 					state_w = STATE11;
 					count_w = 28'd0;
@@ -322,12 +322,12 @@ module clk_counter(
 				end
 			end
 			STATE11: begin // 23000000
-				if (count_r == 28'd11500000) begin
+				if (count_r == 28'd20000000) begin
 					slower_clk_w = 1'd1;
 					count_w = count_r + 28'd1;
 					state_w = state_r;
 				end
-				else if (count_r == 28'd23000000) begin
+				else if (count_r == 28'd40000000) begin
 					slower_clk_w = 1'd0;
 					state_w = STATE12;
 					count_w = 28'd0;
@@ -339,12 +339,12 @@ module clk_counter(
 				end
 			end
 			STATE12: begin // 25000000
-				if (count_r == 28'd12500000) begin
+				if (count_r == 28'd30000000) begin
 					slower_clk_w = 1'd1;
 					count_w = count_r + 28'd1;
 					state_w = state_r;
 				end
-				else if (count_r == 28'd25000000) begin
+				else if (count_r == 28'd60000000) begin
 					slower_clk_w = 1'd0;
 					state_w = STATE13;
 					count_w = 28'd0;
@@ -356,12 +356,12 @@ module clk_counter(
 				end
 			end
 			STATE13: begin // 27000000
-				if (count_r == 28'd13500000) begin
+				if (count_r == 28'd30000000) begin
 					slower_clk_w = 1'd1;
 					count_w = count_r + 28'd1;
 					state_w = state_r;
 				end
-				else if (count_r == 28'd27000000) begin
+				else if (count_r == 28'd60000000) begin
 					slower_clk_w = 1'd0;
 					state_w = STATE14;
 					count_w = 28'd0;
@@ -373,12 +373,12 @@ module clk_counter(
 				end
 			end
 			STATE14: begin // 29000000
-				if (count_r == 28'd14500000) begin
+				if (count_r == 28'd40000000) begin
 					slower_clk_w = 1'd1;
 					count_w = count_r + 28'd1;
 					state_w = state_r;
 				end
-				else if (count_r == 28'd29000000) begin
+				else if (count_r == 28'd80000000) begin
 					slower_clk_w = 1'd0;
 					state_w = IDLE;
 					count_w = 28'd0;
@@ -397,12 +397,17 @@ module clk_counter(
 		endcase
 	end
 
-	always_ff @(posedge i_clk or negedge i_rst_n) begin
+	always_ff @(posedge i_clk or negedge i_rst_n or posedge i_start) begin
 		
 		// reset
 		if (!i_rst_n) begin
 			count_r <= 28'd0;
 			state_r	<= IDLE;
+			slower_clk_r <= 1'd0;
+		end
+		else if (i_start) begin
+			count_r <= 28'd0;
+			state_r	<= STATE0;
 			slower_clk_r <= 1'd0;
 		end
 		else begin

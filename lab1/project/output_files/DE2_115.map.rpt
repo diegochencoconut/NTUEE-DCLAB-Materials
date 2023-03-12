@@ -1,5 +1,5 @@
 Analysis & Synthesis report for DE2_115
-Sun Mar 12 16:42:10 2023
+Sun Mar 12 17:12:06 2023
 Quartus II 64-Bit Version 15.0.0 Build 145 04/22/2015 SJ Full Version
 
 
@@ -13,16 +13,14 @@ Quartus II 64-Bit Version 15.0.0 Build 145 04/22/2015 SJ Full Version
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. State Machine - |DE2_115|Top:top0|clk_counter:clk_counter1|state_r
-  9. Registers Removed During Synthesis
- 10. General Register Statistics
- 11. Multiplexer Restructuring Statistics (Restructuring Performed)
- 12. Parameter Settings for User Entity Instance: Debounce:deb0
- 13. Parameter Settings for User Entity Instance: SevenHexDecoder:seven_dec0
- 14. Port Connectivity Checks: "Debounce:deb0"
- 15. Post-Synthesis Netlist Statistics for Top Partition
- 16. Elapsed Time Per Partition
- 17. Analysis & Synthesis Messages
+  8. General Register Statistics
+  9. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 10. Parameter Settings for User Entity Instance: Debounce:deb0
+ 11. Parameter Settings for User Entity Instance: SevenHexDecoder:seven_dec0
+ 12. Port Connectivity Checks: "Debounce:deb0"
+ 13. Post-Synthesis Netlist Statistics for Top Partition
+ 14. Elapsed Time Per Partition
+ 15. Analysis & Synthesis Messages
 
 
 
@@ -49,13 +47,13 @@ agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sun Mar 12 16:42:10 2023       ;
+; Analysis & Synthesis Status        ; Successful - Sun Mar 12 17:12:06 2023       ;
 ; Quartus II 64-Bit Version          ; 15.0.0 Build 145 04/22/2015 SJ Full Version ;
 ; Revision Name                      ; DE2_115                                     ;
 ; Top-level Entity Name              ; DE2_115                                     ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 279                                         ;
-;     Total combinational functions  ; 271                                         ;
+; Total logic elements               ; 175                                         ;
+;     Total combinational functions  ; 162                                         ;
 ;     Dedicated logic registers      ; 90                                          ;
 ; Total registers                    ; 90                                          ;
 ; Total pins                         ; 480                                         ;
@@ -162,12 +160,12 @@ agreement for further details.
 ; Maximum allowed            ; 16          ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 7           ;
+; Maximum used               ; 6           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-7         ; < 0.1%      ;
-;     Processors 8-16        ;   0.0%      ;
+;     Processors 2-6         ; < 0.1%      ;
+;     Processors 7-16        ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -183,36 +181,36 @@ agreement for further details.
 +-----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------------------------------+---------+
 
 
-+------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                ;
-+---------------------------------------------+--------------+
-; Resource                                    ; Usage        ;
-+---------------------------------------------+--------------+
-; Estimated Total logic elements              ; 279          ;
-;                                             ;              ;
-; Total combinational functions               ; 271          ;
-; Logic element usage by number of LUT inputs ;              ;
-;     -- 4 input functions                    ; 152          ;
-;     -- 3 input functions                    ; 59           ;
-;     -- <=2 input functions                  ; 60           ;
-;                                             ;              ;
-; Logic elements by mode                      ;              ;
-;     -- normal mode                          ; 230          ;
-;     -- arithmetic mode                      ; 41           ;
-;                                             ;              ;
-; Total registers                             ; 90           ;
-;     -- Dedicated logic registers            ; 90           ;
-;     -- I/O registers                        ; 0            ;
-;                                             ;              ;
-; I/O pins                                    ; 480          ;
-;                                             ;              ;
-; Embedded Multiplier 9-bit elements          ; 0            ;
-;                                             ;              ;
-; Maximum fan-out node                        ; KEY[1]~input ;
-; Maximum fan-out                             ; 90           ;
-; Total fan-out                               ; 1834         ;
-; Average fan-out                             ; 1.25         ;
-+---------------------------------------------+--------------+
++--------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                  ;
++---------------------------------------------+----------------+
+; Resource                                    ; Usage          ;
++---------------------------------------------+----------------+
+; Estimated Total logic elements              ; 175            ;
+;                                             ;                ;
+; Total combinational functions               ; 162            ;
+; Logic element usage by number of LUT inputs ;                ;
+;     -- 4 input functions                    ; 73             ;
+;     -- 3 input functions                    ; 37             ;
+;     -- <=2 input functions                  ; 52             ;
+;                                             ;                ;
+; Logic elements by mode                      ;                ;
+;     -- normal mode                          ; 121            ;
+;     -- arithmetic mode                      ; 41             ;
+;                                             ;                ;
+; Total registers                             ; 90             ;
+;     -- Dedicated logic registers            ; 90             ;
+;     -- I/O registers                        ; 0              ;
+;                                             ;                ;
+; I/O pins                                    ; 480            ;
+;                                             ;                ;
+; Embedded Multiplier 9-bit elements          ; 0              ;
+;                                             ;                ;
+; Maximum fan-out node                        ; CLOCK_50~input ;
+; Maximum fan-out                             ; 82             ;
+; Total fan-out                               ; 1443           ;
+; Average fan-out                             ; 1.07           ;
++---------------------------------------------+----------------+
 
 
 +----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -220,52 +218,14 @@ agreement for further details.
 +----------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------+--------------+
 ; Compilation Hierarchy Node       ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                        ; Library Name ;
 +----------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------+--------------+
-; |DE2_115                         ; 271 (0)           ; 90 (0)       ; 0           ; 0            ; 0       ; 0         ; 480  ; 0            ; |DE2_115                                   ; work         ;
+; |DE2_115                         ; 162 (0)           ; 90 (0)       ; 0           ; 0            ; 0       ; 0         ; 480  ; 0            ; |DE2_115                                   ; work         ;
 ;    |Debounce:deb0|               ; 6 (6)             ; 5 (5)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DE2_115|Debounce:deb0                     ; work         ;
 ;    |SevenHexDecoder:seven_dec0|  ; 8 (8)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DE2_115|SevenHexDecoder:seven_dec0        ; work         ;
-;    |Top:top0|                    ; 257 (0)           ; 85 (4)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DE2_115|Top:top0                          ; work         ;
+;    |Top:top0|                    ; 148 (0)           ; 85 (4)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DE2_115|Top:top0                          ; work         ;
 ;       |LFSR:LFSR1|               ; 32 (32)           ; 36 (36)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DE2_115|Top:top0|LFSR:LFSR1               ; work         ;
-;       |clk_counter:clk_counter1| ; 225 (225)         ; 45 (45)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DE2_115|Top:top0|clk_counter:clk_counter1 ; work         ;
+;       |clk_counter:clk_counter1| ; 116 (116)         ; 45 (45)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |DE2_115|Top:top0|clk_counter:clk_counter1 ; work         ;
 +----------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
-
-
-Encoding Type:  One-Hot
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; State Machine - |DE2_115|Top:top0|clk_counter:clk_counter1|state_r                                                                                                                                                                                                                                 ;
-+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+--------------+
-; Name            ; state_r.STATE14 ; state_r.STATE13 ; state_r.STATE12 ; state_r.STATE11 ; state_r.STATE10 ; state_r.STATE9 ; state_r.STATE8 ; state_r.STATE7 ; state_r.STATE6 ; state_r.STATE5 ; state_r.STATE4 ; state_r.STATE3 ; state_r.STATE2 ; state_r.STATE1 ; state_r.STATE0 ; state_r.IDLE ;
-+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+--------------+
-; state_r.IDLE    ; 0               ; 0               ; 0               ; 0               ; 0               ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0            ;
-; state_r.STATE0  ; 0               ; 0               ; 0               ; 0               ; 0               ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ; 1            ;
-; state_r.STATE1  ; 0               ; 0               ; 0               ; 0               ; 0               ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ; 0              ; 1            ;
-; state_r.STATE2  ; 0               ; 0               ; 0               ; 0               ; 0               ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ; 0              ; 0              ; 1            ;
-; state_r.STATE3  ; 0               ; 0               ; 0               ; 0               ; 0               ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ; 0              ; 0              ; 0              ; 1            ;
-; state_r.STATE4  ; 0               ; 0               ; 0               ; 0               ; 0               ; 0              ; 0              ; 0              ; 0              ; 0              ; 1              ; 0              ; 0              ; 0              ; 0              ; 1            ;
-; state_r.STATE5  ; 0               ; 0               ; 0               ; 0               ; 0               ; 0              ; 0              ; 0              ; 0              ; 1              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1            ;
-; state_r.STATE6  ; 0               ; 0               ; 0               ; 0               ; 0               ; 0              ; 0              ; 0              ; 1              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1            ;
-; state_r.STATE7  ; 0               ; 0               ; 0               ; 0               ; 0               ; 0              ; 0              ; 1              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1            ;
-; state_r.STATE8  ; 0               ; 0               ; 0               ; 0               ; 0               ; 0              ; 1              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1            ;
-; state_r.STATE9  ; 0               ; 0               ; 0               ; 0               ; 0               ; 1              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1            ;
-; state_r.STATE10 ; 0               ; 0               ; 0               ; 0               ; 1               ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1            ;
-; state_r.STATE11 ; 0               ; 0               ; 0               ; 1               ; 0               ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1            ;
-; state_r.STATE12 ; 0               ; 0               ; 1               ; 0               ; 0               ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1            ;
-; state_r.STATE13 ; 0               ; 1               ; 0               ; 0               ; 0               ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1            ;
-; state_r.STATE14 ; 1               ; 0               ; 0               ; 0               ; 0               ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 0              ; 1            ;
-+-----------------+-----------------+-----------------+-----------------+-----------------+-----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+----------------+--------------+
-
-
-+------------------------------------------------------------------+
-; Registers Removed During Synthesis                               ;
-+---------------------------------------------+--------------------+
-; Register name                               ; Reason for Removal ;
-+---------------------------------------------+--------------------+
-; Top:top0|clk_counter:clk_counter1|state_r~4 ; Lost fanout        ;
-; Top:top0|clk_counter:clk_counter1|state_r~5 ; Lost fanout        ;
-; Top:top0|clk_counter:clk_counter1|state_r~6 ; Lost fanout        ;
-; Top:top0|clk_counter:clk_counter1|state_r~7 ; Lost fanout        ;
-; Total Number of Removed Registers = 4       ;                    ;
-+---------------------------------------------+--------------------+
 
 
 +------------------------------------------------------+
@@ -278,18 +238,18 @@ Encoding Type:  One-Hot
 ; Number of registers using Synchronous Load   ; 1     ;
 ; Number of registers using Asynchronous Clear ; 90    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Clock Enable       ; 7     ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                      ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                            ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------+
-; 46:1               ; 28 bits   ; 840 LEs       ; 28 LEs               ; 812 LEs                ; Yes        ; |DE2_115|Top:top0|clk_counter:clk_counter1|count_r[6] ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                       ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                             ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------+
+; 22:1               ; 28 bits   ; 392 LEs       ; 28 LEs               ; 364 LEs                ; Yes        ; |DE2_115|Top:top0|clk_counter:clk_counter1|count_r[12] ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------+
 
 
 +------------------------------------------------------------+
@@ -338,23 +298,24 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; boundary_port         ; 480                         ;
 ; cycloneiii_ff         ; 90                          ;
-;     CLR               ; 61                          ;
+;     CLR               ; 54                          ;
 ;     CLR SCLR          ; 28                          ;
 ;     CLR SLD           ; 1                           ;
+;     ENA CLR           ; 7                           ;
 ; cycloneiii_io_obuf    ; 141                         ;
-; cycloneiii_lcell_comb ; 275                         ;
+; cycloneiii_lcell_comb ; 166                         ;
 ;     arith             ; 41                          ;
 ;         2 data inputs ; 40                          ;
 ;         3 data inputs ; 1                           ;
-;     normal            ; 234                         ;
+;     normal            ; 125                         ;
 ;         0 data inputs ; 2                           ;
 ;         1 data inputs ; 5                           ;
-;         2 data inputs ; 17                          ;
-;         3 data inputs ; 58                          ;
-;         4 data inputs ; 152                         ;
+;         2 data inputs ; 9                           ;
+;         3 data inputs ; 36                          ;
+;         4 data inputs ; 73                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 12.00                       ;
-; Average LUT depth     ; 4.48                        ;
+; Max LUT depth         ; 9.00                        ;
+; Average LUT depth     ; 2.91                        ;
 +-----------------------+-----------------------------+
 
 
@@ -363,7 +324,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:01     ;
+; Top            ; 00:00:00     ;
 +----------------+--------------+
 
 
@@ -373,7 +334,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 15.0.0 Build 145 04/22/2015 SJ Full Version
-    Info: Processing started: Sun Mar 12 16:41:55 2023
+    Info: Processing started: Sun Mar 12 17:11:55 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off LAB1_PROJECT -c DE2_115
 Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file /ntu/2023_spring/digital_circuit/ntuee-dclab-materials/lab1/src/de2_115/sevenhexdecoder.sv
@@ -459,6 +420,7 @@ Warning (10230): Verilog HDL assignment warning at Debounce.sv(25): truncated va
 Info (12128): Elaborating entity "Top" for hierarchy "Top:top0"
 Info (12128): Elaborating entity "LFSR" for hierarchy "Top:top0|LFSR:LFSR1"
 Info (12128): Elaborating entity "clk_counter" for hierarchy "Top:top0|clk_counter:clk_counter1"
+Info (10018): Can't recognize finite state machine "state_r" because it has a complex reset state
 Info (12128): Elaborating entity "SevenHexDecoder" for hierarchy "SevenHexDecoder:seven_dec0"
 Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning (13039): The following bidirectional pins have no drivers
@@ -603,6 +565,9 @@ Warning (13039): The following bidirectional pins have no drivers
     Warning (13040): bidirectional pin "EX_IO[4]" has no driver
     Warning (13040): bidirectional pin "EX_IO[5]" has no driver
     Warning (13040): bidirectional pin "EX_IO[6]" has no driver
+Warning (13004): Presettable and clearable registers converted to equivalent circuits with latches. Registers power-up to an undefined state, and DEVCLRn places the registers in an undefined state.
+    Warning (13310): Register "Top:top0|clk_counter:clk_counter1|state_r.STATE0" is converted into an equivalent circuit using register "Top:top0|clk_counter:clk_counter1|state_r.STATE0~_emulated" and latch "Top:top0|clk_counter:clk_counter1|state_r.STATE0~1"
+    Warning (13310): Register "Top:top0|clk_counter:clk_counter1|state_r.IDLE" is converted into an equivalent circuit using register "Top:top0|clk_counter:clk_counter1|state_r.IDLE~_emulated" and latch "Top:top0|clk_counter:clk_counter1|state_r.IDLE~1"
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "SMA_CLKOUT" is stuck at GND
     Warning (13410): Pin "LEDG[0]" is stuck at GND
@@ -842,7 +807,6 @@ Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "HSMC_TX_D_P[15]" is stuck at GND
     Warning (13410): Pin "HSMC_TX_D_P[16]" is stuck at GND
 Info (286030): Timing-Driven Synthesis is running
-Info (17049): 4 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 88 input pin(s) that do not drive logic
@@ -934,15 +898,15 @@ Warning (21074): Design contains 88 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "HSMC_RX_D_P[14]"
     Warning (15610): No output dependent on input pin "HSMC_RX_D_P[15]"
     Warning (15610): No output dependent on input pin "HSMC_RX_D_P[16]"
-Info (21057): Implemented 760 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 658 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 91 input pins
     Info (21059): Implemented 248 output pins
     Info (21060): Implemented 141 bidirectional pins
-    Info (21061): Implemented 280 logic cells
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 538 warnings
-    Info: Peak virtual memory: 4927 megabytes
-    Info: Processing ended: Sun Mar 12 16:42:10 2023
-    Info: Elapsed time: 00:00:15
-    Info: Total CPU time (on all processors): 00:00:08
+    Info (21061): Implemented 178 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 541 warnings
+    Info: Peak virtual memory: 4925 megabytes
+    Info: Processing ended: Sun Mar 12 17:12:06 2023
+    Info: Elapsed time: 00:00:11
+    Info: Total CPU time (on all processors): 00:00:07
 
 
