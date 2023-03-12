@@ -1,0 +1,77 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'CLOCK_50'
+Slack : -7.948
+TNS   : -375.357
+
+Type  : Slow 1200mV 85C Model Setup 'Top:top0|clk_counter:clk_counter1|count_r[0]'
+Slack : -3.648
+TNS   : -19.719
+
+Type  : Slow 1200mV 85C Model Hold 'Top:top0|clk_counter:clk_counter1|count_r[0]'
+Slack : -1.264
+TNS   : -4.657
+
+Type  : Slow 1200mV 85C Model Hold 'CLOCK_50'
+Slack : 0.402
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'CLOCK_50'
+Slack : -3.000
+TNS   : -108.370
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'Top:top0|clk_counter:clk_counter1|count_r[0]'
+Slack : -1.913
+TNS   : -170.455
+
+Type  : Slow 1200mV 0C Model Setup 'CLOCK_50'
+Slack : -7.183
+TNS   : -335.286
+
+Type  : Slow 1200mV 0C Model Setup 'Top:top0|clk_counter:clk_counter1|count_r[0]'
+Slack : -3.320
+TNS   : -17.578
+
+Type  : Slow 1200mV 0C Model Hold 'Top:top0|clk_counter:clk_counter1|count_r[0]'
+Slack : -1.271
+TNS   : -4.406
+
+Type  : Slow 1200mV 0C Model Hold 'CLOCK_50'
+Slack : 0.353
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'CLOCK_50'
+Slack : -3.000
+TNS   : -108.370
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'Top:top0|clk_counter:clk_counter1|count_r[0]'
+Slack : -1.956
+TNS   : -153.594
+
+Type  : Fast 1200mV 0C Model Setup 'CLOCK_50'
+Slack : -3.332
+TNS   : -147.441
+
+Type  : Fast 1200mV 0C Model Setup 'Top:top0|clk_counter:clk_counter1|count_r[0]'
+Slack : -1.625
+TNS   : -9.850
+
+Type  : Fast 1200mV 0C Model Hold 'Top:top0|clk_counter:clk_counter1|count_r[0]'
+Slack : -0.597
+TNS   : -2.049
+
+Type  : Fast 1200mV 0C Model Hold 'CLOCK_50'
+Slack : 0.181
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'CLOCK_50'
+Slack : -3.000
+TNS   : -103.856
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'Top:top0|clk_counter:clk_counter1|count_r[0]'
+Slack : -1.000
+TNS   : -63.494
+
+------------------------------------------------------------
