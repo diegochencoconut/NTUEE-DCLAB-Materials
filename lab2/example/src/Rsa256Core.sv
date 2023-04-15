@@ -80,10 +80,6 @@ module Rsa256Core (
       begin
         if(i_start)
         begin
-        $display("=========== RSA calc start ===============")
-        $display("n: %h", n_r);
-        $display("e: %h", e_r);
-        $display("enc: %h", enc_r);
           state_w = S_PREP;
           count_w = 0 ;
         end
