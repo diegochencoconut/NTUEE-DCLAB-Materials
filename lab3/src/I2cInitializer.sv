@@ -63,7 +63,7 @@ always_comb begin
 
     case (data_state_r)
         IDLE: begin
-            data_w = 32'b0;
+            data_w = 24'b0;
             state_start_w = 1'b0;
         end
 
