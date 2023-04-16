@@ -32,8 +32,8 @@ always_comb begin
 
     S_RIGHTIDLE: begin
         if (i_daclrck) begin     // ready to output right data
-            buffer_w = data_r << 1;
-            sda_w = data_r[15];
+            buffer_w = data_r;
+            sda_w = 1'b0;
             state_w = S_RIGHTSEND;
         end
         else begin
@@ -51,7 +51,7 @@ always_comb begin
         end
         else if (counter_r == 4'd15) begin
             buffer_w = 16'b0;
-            sda_w = 1'b0;
+            sda_w = buffer_r[15];
             state_w = S_LEFTIDLE;
             counter_w = 4'd0;
         end
@@ -60,8 +60,8 @@ always_comb begin
 
     S_LEFTIDLE: begin
         if (!i_daclrck) begin     // ready to output right data
-            buffer_w = data_r << 1;
-            sda_w = data_r[15];
+            buffer_w = data_r;
+            sda_w = 1'b0;
             state_w = S_LEFTSEND;
         end
         else begin
@@ -79,7 +79,7 @@ always_comb begin
         end
         else if (counter_r == 4'd15) begin
             buffer_w = 16'b0;
-            sda_w = 1'b0;
+            sda_w = buffer_r[15];
             state_w = S_RIGHTIDLE;
             counter_w = 4'd0;
         end
