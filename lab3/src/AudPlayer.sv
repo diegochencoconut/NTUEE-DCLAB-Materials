@@ -12,88 +12,108 @@ logic           sda_r, sda_w;
 
 assign o_aud_dacdat = i_en ? sda_r : 0;
 
-parameter S_RIGHTIDLE = 3'd0;
-parameter S_RIGHTSEND = 3'd1;
+parameter S_IDLE      = 3'd0;
 
-parameter S_LEFTIDLE = 3'd3;
+parameter S_LEFTIDLE = 3'd1;
 parameter S_LEFTSEND = 3'd2;
+
+parameter S_RIGHTIDLE = 3'd3;
+parameter S_RIGHTSEND = 3'd4;
 
 logic[2:0] state_r, state_w;
 logic[3:0] counter_r, counter_w;
 
 always_comb begin
-    data_w = i_dac_data;
+    data_w = data_r;
     buffer_w = buffer_r;
     sda_w = sda_r;
     state_w = state_r;
     counter_w = counter_r;
 
-    case (state_r)
-
-    S_RIGHTIDLE: begin
-        if (i_daclrck) begin     // ready to output right data
-            buffer_w = data_r;
-            sda_w = 1'b0;
-            state_w = S_RIGHTSEND;
-        end
-        else begin
-            sda_w = 1'b0;
-            state_w = S_RIGHTIDLE;
-        end
+    if (!i_en) begin
+        state_w = S_IDLE;
+        sda_w = 0;
+        counter_w = 0;
     end
+    else begin
+        case (state_r)
+        S_IDLE: begin
+            sda_w = 0;
+            if (i_en && i_daclrck) begin
+                data_w = i_dac_data;
+                state_w = S_LEFTIDLE;
+            end
+            else begin
+                state_w = S_IDLE;
+            end
+        end
 
-    S_RIGHTSEND: begin
-        if (counter_r < 4'd15) begin
-            buffer_w = buffer_r << 1;
-            sda_w = buffer_r[15];
-            state_w = S_RIGHTSEND;
-            counter_w = counter_r + 1;
+        S_LEFTIDLE: begin
+            if (!i_daclrck) begin     // ready to output right data
+                buffer_w = data_r;
+                sda_w = 1'b0;
+                state_w = S_LEFTSEND;
+            end
+            else begin
+                data_w = i_dac_data;
+                sda_w = 1'b0;
+                state_w = S_LEFTIDLE;
+            end
         end
-        else if (counter_r == 4'd15) begin
-            buffer_w = 16'b0;
-            sda_w = buffer_r[15];
-            state_w = S_LEFTIDLE;
-            counter_w = 4'd0;
-        end
-        
-    end
 
-    S_LEFTIDLE: begin
-        if (!i_daclrck) begin     // ready to output right data
-            buffer_w = data_r;
-            sda_w = 1'b0;
-            state_w = S_LEFTSEND;
+        S_LEFTSEND: begin
+            if (counter_r < 4'd15) begin
+                buffer_w = buffer_r << 1;
+                sda_w = buffer_r[15];
+                state_w = S_LEFTSEND;
+                counter_w = counter_r + 1;
+            end
+            else if (counter_r == 4'd15) begin
+                buffer_w = 16'b0;
+                sda_w = buffer_r[15];
+                state_w = S_RIGHTIDLE;
+                counter_w = 4'd0;
+            end
+            
         end
-        else begin
-            sda_w = 1'b0;
-            state_w = S_LEFTIDLE;
-        end
-    end
 
-    S_LEFTSEND: begin
-        if (counter_r < 4'd15) begin
-            buffer_w = buffer_r << 1;
-            sda_w = buffer_r[15];
-            state_w = S_LEFTSEND;
-            counter_w = counter_r + 1;
+        S_RIGHTIDLE: begin
+            if (i_daclrck) begin     // ready to output right data
+                buffer_w = data_r;
+                sda_w = 1'b0;
+                state_w = S_RIGHTSEND;
+            end
+            else begin
+                sda_w = 1'b0;
+                state_w = S_RIGHTIDLE;
+            end
         end
-        else if (counter_r == 4'd15) begin
-            buffer_w = 16'b0;
-            sda_w = buffer_r[15];
-            state_w = S_RIGHTIDLE;
-            counter_w = 4'd0;
+
+        S_RIGHTSEND: begin
+            if (counter_r < 4'd15) begin
+                buffer_w = buffer_r << 1;
+                sda_w = buffer_r[15];
+                state_w = S_RIGHTSEND;
+                counter_w = counter_r + 1;
+            end
+            else if (counter_r == 4'd15) begin
+                buffer_w = 16'b0;
+                sda_w = buffer_r[15];
+                state_w = S_IDLE;
+                counter_w = 4'd0;
+            end
+            
         end
-        
+        endcase
     end
-    endcase
 end
 
 always_ff @(negedge i_rst_n or negedge i_bclk) begin
-    if (!i_rst_n)begin
+    if (!i_rst_n) begin
         data_r <= 16'b0;
         buffer_r <= 16'b0;
         sda_r <= 1'b0;
-        state_r <= S_RIGHTIDLE;
+        state_r <= S_IDLE;
         counter_r <= 4'd0;
     end
     else begin
