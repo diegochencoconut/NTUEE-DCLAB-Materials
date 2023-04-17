@@ -6,7 +6,7 @@ parameter HCLK = CLK / 2;
 
 logic clk, gpio, reset;
 
-GPIOTEST test(
+gpio test(
     .i_rst_n(reset),
     .i_clk(clk),
     .o_gpio(gpio)

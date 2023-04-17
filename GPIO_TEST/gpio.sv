@@ -1,4 +1,4 @@
-module GPIOTEST (
+module gpio (
     input i_rst_n,
     input i_clk,
     output o_gpio
@@ -7,10 +7,12 @@ module GPIOTEST (
 logic state_r, state_w;
 logic[26:0] counter_r, counter_w;
 
-parameter timelength = 27'd100;        //50000000
+parameter timelength = 27'd50000000;        //50000000
 assign o_gpio = state_r;
 
 always_comb begin
+    state_w = state_r;
+    counter_w = counter_r;
 
     if (counter_r < timelength) begin
         state_w = state_r;
