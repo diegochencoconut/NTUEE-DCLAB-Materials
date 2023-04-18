@@ -137,6 +137,7 @@ module DE2_115 (
 );
 
 logic key0down, key1down, key2down, key3down;
+logic sw0on, sw1on, sw2on, sw3on;
 logic CLK_12M, CLK_100K, CLK_800K;
 
 assign AUD_XCK = CLK_12M;
@@ -171,12 +172,44 @@ Debounce deb2(
 	.o_neg(key2down) 
 );
 
+Debounce deb3(
+	.i_in(SW[0]), // Stop
+	.i_rst_n(KEY[3]),
+	.i_clk(CLK_12M),
+	.o_neg(sw0on) 
+);
+
+Debounce deb3(
+	.i_in(SW[1]), // Stop
+	.i_rst_n(KEY[3]),
+	.i_clk(CLK_12M),
+	.o_neg(sw1on) 
+);
+
+Debounce deb3(
+	.i_in(SW[2]), // Stop
+	.i_rst_n(KEY[3]),
+	.i_clk(CLK_12M),
+	.o_neg(sw2on) 
+);
+
+Debounce deb3(
+	.i_in(SW[3]), // Stop
+	.i_rst_n(KEY[3]),
+	.i_clk(CLK_12M),
+	.o_neg(sw3on) 
+);
+
 Top top0(
 	.i_rst_n(KEY[3]),
 	.i_clk(CLK_12M),
 	.i_key_0(key0down),
 	.i_key_1(key1down),
 	.i_key_2(key2down),
+	.i_sw_0(sw0on),
+	.i_sw_1(sw1on),
+	.i_sw_2(sw2on),
+	.i_sw_3(sw3on),
 	// .i_speed(SW[3:0]), // design how user can decide mode on your own
 	
 	// AudDSP and SRAM
@@ -216,6 +249,8 @@ Top top0(
 	// LED
 	// .o_ledg(LEDG), // [8:0]
 	// .o_ledr(LEDR) // [17:0]
+
+	.o_gpio(GPIO[35:0]);
 );
 
 // SevenHexDecoder seven_dec0(

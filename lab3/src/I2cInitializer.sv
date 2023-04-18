@@ -1,7 +1,7 @@
 module I2cInitializer (
     input i_rst_n,
 	input i_clk,
-	input i_start,
+	// input i_start,
 	output o_finished,
 	output o_sclk,
 	output o_sdat,
@@ -219,19 +219,20 @@ always_comb begin
 
 end
 
-always_ff @(negedge i_rst_n or posedge i_clk or posedge i_start) begin
+// always_ff @(negedge i_rst_n or posedge i_clk or posedge i_start) begin
+always_ff @(negedge i_rst_n or posedge i_clk) begin
     if (!i_rst_n) begin
-        data_r <= 24'b0;
-        state_start_r <= 1'b0;
-        data_state_r <= IDLE;
-        loaded_r <= NOTLOADED;
-    end
-    if (i_start) begin
         data_r <= RESET_DATA;
         state_start_r <= 1'b0;
         data_state_r <= RESET;
         loaded_r <= DATALOADED;
     end
+    // if (i_start) begin
+    //     data_r <= RESET_DATA;
+    //     state_start_r <= 1'b0;
+    //     data_state_r <= RESET;
+    //     loaded_r <= DATALOADED;
+    // end
     else begin
         data_r <= data_w;
         state_start_r <= state_start_w;

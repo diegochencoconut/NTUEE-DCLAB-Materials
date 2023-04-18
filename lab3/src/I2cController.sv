@@ -99,8 +99,6 @@ always_comb begin
             data_w = data_r << 1;
             datacounter_w = datacounter_r + 1;
 
-            en_w = 1'b1;
-
             i2c_state_w = S_SEND;
         end
 
@@ -163,7 +161,7 @@ always_comb begin
             sda_w = sda_r;
             scl_w = 1'b0;
 
-            en_w = 1'b0;
+            en_w = 1'b1;
 
             cyclecounter_w = cyclecounter_r + 1;
             if (cyclecounter_r < 2'd2)  begin
@@ -178,8 +176,6 @@ always_comb begin
         S_STOPDOWN: begin
             sda_w = 1'b0;
             scl_w = 1'b0;
-
-            en_w = 1'b1;
 
             i2c_state_w = S_STOPSET;
         end

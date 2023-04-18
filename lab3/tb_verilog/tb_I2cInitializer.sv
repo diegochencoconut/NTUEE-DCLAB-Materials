@@ -4,13 +4,14 @@ module tb;
 localparam CLK = 10;
 localparam HCLK = CLK / 2;
 
-logic clk, start, reset;
+// logic clk, start, reset;
+logic clk, reset;
 logic en, SDA, SCL, finished;
 
 I2cInitializer test (
     .i_rst_n(reset),
     .i_clk(clk),
-	.i_start(start),
+	// .i_start(start),
 	.o_finished(finished),
 	.o_sclk(SCL),
 	.o_sdat(SDA),
@@ -21,7 +22,7 @@ initial begin
     $dumpfile("lab3_i2cinitializer.vcd");
     $dumpvars;
     clk = 0;
-    start = 0;
+    // start = 0;
     reset = 1;
 
     #10;
@@ -31,11 +32,11 @@ initial begin
     reset = 1;
 
     #100;
-    start = 1;
+    // start = 1;
     $display("started");
 
     #10;
-    start = 0;
+    // start = 0;
 
 end
 
